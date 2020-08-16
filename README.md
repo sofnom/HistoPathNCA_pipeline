@@ -6,8 +6,8 @@ quantifying cell phenotypes. Genome Biology, 2006) software to perform nuclear a
 
 CellProfiler 3.1.8 version is used. 
 
-Data structure
+## Data structure
 
-Pipeline
+## Pipeline
 
-Data analysis
+## Data analysis
