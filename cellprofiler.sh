@@ -5,7 +5,7 @@
 #SBATCH --output=cell_profiler_slide_%j.out
 #SBATCH --error=cell_profiler_slide_%j.err
 
-pipeline="/gpfs/data/tsirigoslab/home/sn2289/BRAF_project_revisions/cellprofiler/nuclei_annotation.cppipe"
+pipeline="YOUR_PATH_TO/nuclei_annotation.cppipe"
 
 # The file changes based on the image being processed each time
 file_text="$1"
