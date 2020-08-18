@@ -9,7 +9,7 @@ All scripts are developed for the "bigpurple" computing cluster of the NYU Gross
 
 ## Data structure
 The pipeline is designed to run for every tile of an H&E slide. For our study, tiling is performed using the "0b_tileLoop_deepzoom4.py" script from the DeepPATH pipeline (https://github.com/ncoudray/DeepPATH). 
-Tiles are saved in folders named after the corresponding slide. Each tile is named according to the formula: slide_name_x_y.jpeg, where x and y are the tile coordinates. Files containing the paths to all tiles of the slides of interest are saved as well, in a separate folder. This file structure enables the CellProfiler pipeline to create an output folder for each slide, and inside this folder one output .txt file with the object measurements for all the tiles together. 
+299x299 pixel tiles are saved in folders named after the corresponding slide. Each tile is named according to the formula: slide_name_x_y.jpeg, where x and y are the tile coordinates. Files containing the paths to all tiles of the slides of interest are saved as well in a separate folder under the naming convention slide-name**_path.txt**. This file structure enables the CellProfiler pipeline to create an output folder for each slide, and inside this folder one output .txt file with the object measurements for all the tiles together. 
 
 ## Pipeline
 Our CellProfiler pipeline consists of the following steps:
@@ -22,7 +22,7 @@ Our CellProfiler pipeline consists of the following steps:
 7. MeasureObjectSizeShape: This module measures object size and shape features. In total, it measures 18 features: 
 8. ExportToSpeadsheet: This step is used to save the outputs of the previous step into a text file for every slide.
 
-The nuclear annotation pipeline is in the "nuclei_annotation.cppipe" script and the cell annotation pipeline is in the "cell_annotation.cppipe" script. These scripts can be open and edited on CellProfiler.  
+The nuclear annotation pipeline is in the "nuclei_annotation.cppipe" script and the cell annotation pipeline is in the "cell_annotation.cppipe" script. These scripts can be opened and edited on CellProfiler.  
 
 To run the pipeline, you can use the "run_cellprofiler.sh" script. This script is designed to loop over all tile lists for the slides of interest and submit a job to run the CellProfiler pipeline for each slide separately. This is achieved using the "cellprofiler.sh" script where the user can define the pipeline they wish to use. 
 
