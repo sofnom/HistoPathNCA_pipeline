@@ -2,7 +2,7 @@
 A nuclear and cell annotation pipeline for histopathology H&amp;E slides using CellProfiler. This pipeline was developed for our study Kim & Nomikou et al, "A Deep Learning Approach for Rapid Mutational Screening in Melanoma" in biorxiv link.
 
 This pipeline was developed using the publicly available CellProfiler software (Carpenter AE et al. CellProfiler: image analysis software for identifying and 
-quantifying cell phenotypes. Genome Biology, 2006) to perform nuclear and cell annotation from melanoma histopathology slides. 
+quantifying cell phenotypes. Genome Biology, 2006) to perform nuclear and cell annotation on melanoma histopathology slides. 
 
 CellProfiler 3.1.8 version is used (Documentation: http://cellprofiler-manual.s3.amazonaws.com/CellProfiler-3.0.0/index.html). 
 All scripts are developed for the "bigpurple" computing cluster of the NYU Grossman School of Medicine and appropriate SLURM headers are used in the .sh scripts. 
@@ -22,9 +22,9 @@ Our CellProfiler pipeline consists of the following steps:
 7. MeasureObjectSizeShape: This module measures object size and shape features. In total, it measures 18 features: 
 8. ExportToSpeadsheet: This step is used to save the outputs of the previous step into a text file for every slide.
 
-The nuclear annotation pipeline is in the "" script and the cell annotation pipeline is in the "" script.  
+The nuclear annotation pipeline is in the "nuclei_annotation.cppipe" script and the cell annotation pipeline is in the "cell_annotation.cppipe" script. These scripts can be open and edited on CellProfiler.  
 
-To run the pipeline, you can use the "run_cellprofiler.sh" script. This script is designed to loop over all tile lists for the slides of interest and run the CellProfiler pipeline for each slide. 
+To run the pipeline, you can use the "run_cellprofiler.sh" script. This script is designed to loop over all tile lists for the slides of interest and submit a job to run the CellProfiler pipeline for each slide separately. This is achieved using the "cellprofiler.sh" script where the user can define the pipeline they wish to use. 
 
 ## Outputs
 The pipeline creates one folder for each slide in a predetermined output folder called "test_output" by default, but can be changed by the user through the CellProfiler interface ("ExportToSpeadsheet" step). 
