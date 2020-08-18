@@ -1,5 +1,5 @@
 # HistoPathNCA_pipeline
-A nuclear and cell annotation pipeline for histopathology H&amp;E slides using CellProfiler. This pipeline was developed for our study Kim, Nomikou et al, "A Deep Learning Approach for Rapid Mutational Screening in Melanoma" in biorxiv link.
+A nuclear and cell annotation pipeline for histopathology H&amp;E slides using CellProfiler. This pipeline was developed for our study Kim & Nomikou et al, "A Deep Learning Approach for Rapid Mutational Screening in Melanoma" in biorxiv link.
 
 This pipeline was developed using the publicly available CellProfiler software (Carpenter AE et al. CellProfiler: image analysis software for identifying and 
 quantifying cell phenotypes. Genome Biology, 2006) to perform nuclear and cell annotation from melanoma histopathology slides. 
