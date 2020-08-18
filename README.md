@@ -9,7 +9,7 @@ All scripts are developed for the "bigpurple" computing cluster of the NYU Gross
 
 ## Data structure
 The pipeline is designed to run for every tile of an H&E slide. For our study, tiling is performed using the "0b_tileLoop_deepzoom4.py" script from the DeepPATH pipeline (https://github.com/ncoudray/DeepPATH). 
-299x299 pixel tiles are saved in folders named after the corresponding slide. Each tile is named according to the formula: slide_name_x_y.jpeg, where x and y are the tile coordinates. Files containing the paths to all tiles of the slides of interest are saved as well in a separate folder under the naming convention slide-name**_path.txt**. This file structure enables the CellProfiler pipeline to create an output folder for each slide, and inside this folder one output .txt file with the object measurements for all the tiles together. 
+299x299 pixel tiles are saved in folders named after the corresponding slide. Each tile is named according to the formula: slide_name_x_y.jpeg, where x and y are the tile coordinates. Files containing the paths to all tiles of the slides of interest are saved as well in a separate folder under the naming convention slide-name_path.txt. This file structure enables the CellProfiler pipeline to create an output folder for each slide.
 
 ## Pipeline
 Our CellProfiler pipeline consists of the following steps:
