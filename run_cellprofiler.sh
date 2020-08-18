@@ -18,12 +18,9 @@
 # I altered the pipeline to identify the image name internally and create an output folder accordingly.
 
 # Move to the directory with all the slide tile files
-input_folder="/gpfs/data/tsirigoslab/home/sn2289/BRAF_project_revisions/cellprofiler/tile_files/"
-script_folder="/gpfs/data/tsirigoslab/home/sn2289/BRAF_project_revisions/cellprofiler"
-cd $input_folder
+input_folder="YOUR PATH TO THE DIRECTORY WITH THE TILE LISTS FOR EACH SLIDE/"
+script_folder="YOUR PATH TO THE SCRIPT DIRECTORY"
 
-cd 
-for image_tile_list in *_path.txt ; do
+for image_tile_list in $input_forder/*_path.txt ; do
 	sbatch $script_folder/cellprofiler.sh "$image_tile_list"
 done
-
