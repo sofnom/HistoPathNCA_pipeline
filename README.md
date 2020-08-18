@@ -13,7 +13,7 @@ Tiles are saved in folders named after the corresponding slide. Each tile is nam
 
 ## Pipeline
 Our CellProfiler pipeline consists of the following steps:
-1. UnmixColors: The pipeline starts by de-convolving the Hematoxylin, Eosin and Pigment signals and generating grayscale images indicating the location of each stain with white color. The deconvolution of Hematoxylin and Eosin is built-in the software and the pigment color was determined by choosing a custom color profile based on the pigmentation of our images. 
+1. UnmixColors: The pipeline starts by de-convolving the Hematoxylin, Eosin and Pigment signals and generating grayscale images indicating the location of each stain with white color. The deconvolution of Hematoxylin and Eosin is built-in the software and the pigment color was determined by choosing a custom color profile based on the pigmentation of our images (used image "pigment.png" in the same folder as the .cppipe file). 
 2. IdentifyPrimaryObjects: Then, the Hematoxylin stain is used to annotate nuclei, and the pigment stain is used to annotate pigmented regions on the tile. To annotate nuclei, we decided to adopt the Otsu method with default parameters except for “threshold correction factor” for which we used value of 1.3 instead of the default 1.0 for more stringent annotation. “Typical diameter of objects” was set to 10 to 40 pixels, as by default. For pigment annotation, we used a manual thresholding method with a threshold of 0.8 and ‘typical diameter of objects” was set to 10 to 100 to reduce the number of objects identified. Our slides were not color normalized. We noticed that color normalization was interfering with the annotation of pigmented regions because it was reducing the contrast between the pigment color and the rest of the slide. Instead, we opted for the Otsu method which tests multiple thresholding values before performing nuclear annotation, therefore it automatically adapts to each tile’s color profile. For cell annotation, we changed the annotation method to Minimum Cross Entropy with the default thresholding smoothing value of 1.3488 and the default threshold correction factor of 1.0. The rest of pipeline stages are unchanged.
 3. ConvertObjectsToImage: This step is used to convert the identified pigment objects to a mask image that can be used by the following step MaskObjects.
 4. MaskObjects: Pigmented areas were excluded from our nuclear annotation because pigmented cells may represent melanophages rather than tumor cells. 
@@ -27,6 +27,11 @@ The nuclear annotation pipeline is in the "" script and the cell annotation pipe
 To run the pipeline, you can use the "run_cellprofiler.sh" script. This script is designed to loop over all tile lists for the slides of interest and run the CellProfiler pipeline for each slide. 
 
 ## Outputs
-The outputs of the pipeline consist of one .txt file with all the object information for each tile of a slide. 
+The pipeline creates one folder for each slide in a predetermined output folder called "test_output" by default, but can be changed by the user through the CellProfiler interface ("ExportToSpeadsheet" step). 
+In the slide specific folder, the pipeline outputs:
+1. A .txt file with all the object information for each tile of a slide. This file can be named "Nuclei_Slide_name.txt" or "Cells_Slide_name.txt" based on the annotated objects. 
+2. A .txt file with all pigmented objects identified, called ""
+3. A .txt file with all the annotated objects that are not overlapping the pigment areas, named "".
+4. A series of .jpeg files named "" with the initial tile image overlayed with the nuclear/cellular and pigment annotations, for visualization.
 
 ## Data analysis
