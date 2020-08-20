@@ -30,8 +30,11 @@ To run the pipeline, you can use the "run_cellprofiler.sh" script. This script i
 The pipeline creates one folder for each slide in a predetermined output folder called "test_output" by default, but can be changed by the user through the CellProfiler interface ("ExportToSpeadsheet" step). 
 In the slide specific folder, the pipeline outputs:
 1. A .txt file with all the object information for each tile of a slide. This file can be named "Nuclei_Slide_name.txt" or "Cells_Slide_name.txt" based on the annotated objects. 
-2. A .txt file with all pigmented objects identified, called ""
-3. A .txt file with all the annotated objects that are not overlapping the pigment areas, named "".
-4. A series of .jpeg files named "" with the initial tile image overlayed with the nuclear/cellular and pigment annotations, for visualization.
+2. A .txt file with all pigmented objects identified, called "pigmented_regions_slide_name.txt".
+3. A .txt file with all the annotated objects that are not overlapping the pigment areas, named either "Nuclei_out_of_pigment_slide_name.txt" or "Cells_out_of_pipeline_slide_name.txt".
+4. A series of .png files named "overlay_x_y.png" with the initial tile image overlayed with the nuclear/cellular and pigment annotations and a series of .png files named "overlay_out_of_pigment_x_y.png" for visualization of only the objects that do not overlap pigment areas along with the pigmented regions. These files are generated for every tile analyzed.  
 
 ## Data analysis
+Analysis of the generated data is focusing on creating a visualization of the average feature values for the identified nuclei/cells at the patient level. The way the analysis is set, it can take care of multiple slides by patient by aggregating all the information from all the slides. The analysis generates a file called "accepted_nuclei_normalized.txt" (or accepted_cells_normalized.txt)
+
+Note: Please, make sure you update the scripts if the patient identifiers you are using have length different than 6 or 12. 
