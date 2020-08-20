@@ -35,6 +35,13 @@ In the slide specific folder, the pipeline outputs:
 4. A series of .png files named "overlay_x_y.png" with the initial tile image overlayed with the nuclear/cellular and pigment annotations and a series of .png files named "overlay_out_of_pigment_x_y.png" for visualization of only the objects that do not overlap pigment areas along with the pigmented regions. These files are generated for every tile analyzed.  
 
 ## Data analysis
-Analysis of the generated data is focusing on creating a visualization of the average feature values for the identified nuclei/cells at the patient level. The way the analysis is set, it can take care of multiple slides by patient by aggregating all the information from all the slides. The analysis generates a file called "accepted_nuclei_normalized.txt" (or accepted_cells_normalized.txt)
+Analysis of the generated data is focusing on creating a visualization of the average feature values for the identified nuclei/cells at the patient level. The way the analysis is set, it can take care of multiple slides by patient by aggregating all the information from all the slides. Three scripts are developed:
+1. data_analysis_nuclei.r 
+2. data_analysis_cells.r
+3. data_analysis_pigment.r
+All three scripts take as input a folder where all the output files from the previous step are saved for all patients/slides.
+More specifically, 
 
-Note: Please, make sure you update the scripts if the patient identifiers you are using have length different than 6 or 12. 
+The analysis generates a file called "per_patient_nuclei_data_normalized.txt" (or per_patient_cell_data_normalized.txt) for the first two scripts and a file called "" for the pigment analysis.  
+
+Note: Please, make sure you update the scripts if the patient identifiers you are using have length different than 6 (our NYU cohort) or 12 (TCGA data).
