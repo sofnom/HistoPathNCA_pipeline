@@ -43,8 +43,8 @@ Analysis of the generated data is focusing on creating a visualization of the av
 All three scripts take as input a folder where all the output files from the previous step are saved for all patients/slides.
 More specifically, to use the "data_analysis_nuclei.r" script you need to input a folder with all the "Nuclei_out_of_pigment_slide_name.txt" etc. You can use the run_analysis.sh script to help you submit the job on a cluster. 
 
-The analysis generates a file with the data for all annotated obejcts, named "" It also generates another file called "per_patient_nuclei_data_normalized.txt" (or per_patient_cell_data_normalized.txt) including the averaged nuclear/cellular features for each patient normalized to the total number of tiles per patient  when necessary. Such normalized features are 
-The "data_analysis_pigment.r" script outputs a file called "". This file has two columns, one with the patient id and one with the normalized total pigmented area per tile, for each patient.
+The analysis generates a file with the data for all annotated obejcts, named "all_accepted_nuclei.txt"/"all_accepted_cells.txt" It also generates another file called "per_patient_nuclei_data_normalized.txt" (or per_patient_cell_data_normalized.txt) including the averaged nuclear/cellular features for each patient normalized to the total number of tiles per patient when necessary. The features that get normalized by the total number of tiles are the total number of objects and the total area occupied by the objects. 
+The "data_analysis_pigment.r" script outputs a file called "". This file has two columns, one with the patient id and one with the total pigmented area for each patient normalized by the total number of tiles for each patient.
 
 Note: Please, make sure you update the scripts if the patient identifiers you are using have length different than 6 (our NYU cohort) or 12 (TCGA data).
 
