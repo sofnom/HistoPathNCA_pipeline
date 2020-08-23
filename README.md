@@ -54,7 +54,7 @@ Finally, scripts are provided for data visualization:
 2. data_plotting_cells.r
 3. data_plotting_pigment.r
 
-These three scripts create a .png file with boxplots showing the feature distribution by mutation statification. For our paper, we plotted the nuclear and cellular data by patient BRAF mutational status. 
+These three scripts create a .png file with boxplots showing the feature distribution by mutation statification for each object feature. For our paper, we plotted the nuclear and cellular data by patient BRAF mutational status. 
 The input data is the "per_patient_nuclei_data_normalized.txt" file and a mutations.txt file including the patient ids and their mutational status. 
 
 The script also generates a file with p-values comparing the two distributions using a Wilcoxon rank sum test. 
