@@ -50,11 +50,10 @@ Note: Please, make sure you update the scripts if the patient identifiers you ar
 
 ## Data plotting
 Finally, scripts are provided for data visualization:
-1. data_plotting_nuclei.r
-2. data_plotting_cells.r
-3. data_plotting_pigment.r
+1. data_plotting.r
+2. data_plotting_pigment.r
 
-These three scripts create a .png file with boxplots showing the feature distribution by mutation statification for each object feature. For our paper, we plotted the nuclear and cellular data by patient BRAF mutational status. 
-The input data is the "per_patient_nuclei_data_normalized.txt" file and a mutations.txt file including the patient ids and their mutational status. 
+These scripts create a .png file with boxplots showing the feature distribution by mutation statification for each object feature. For our paper, we plotted the nuclear and cellular data by patient BRAF mutational status. The script also generates a file with p-values comparing the two distributions using a Wilcoxon rank sum test.
+The input to this script is the data file with the normalized data by patient, a file including the patient ids and their mutational status and a string indicating if the objects are "nuclei" or "cells" to determine the output files. 
 
-The script also generates a file with p-values comparing the two distributions using a Wilcoxon rank sum test. 
+ 
