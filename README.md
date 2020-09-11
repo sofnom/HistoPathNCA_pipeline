@@ -8,8 +8,8 @@ CellProfiler 3.1.8 version is used (Documentation: http://cellprofiler-manual.s3
 All scripts are developed for the "bigpurple" computing cluster of the NYU Grossman School of Medicine and appropriate SLURM headers are used in the .sh scripts. 
 
 ## Data structure
-The pipeline is designed to run for every tile of an H&E slide. For our study, tiling is performed using the "0b_tileLoop_deepzoom4.py" script from the DeepPATH pipeline (https://github.com/ncoudray/DeepPATH). 
-299x299 pixel tiles are saved in folders named after the corresponding slide. Each tile is named according to the formula: slide_name_x_y.jpeg, where x and y are the tile coordinates. Files containing the paths to all tiles of the slides of interest are saved as well in a separate folder under the naming convention slide-name_path.txt. This file structure enables the CellProfiler pipeline to create an output folder for each slide.
+The pipeline is designed to run for every tile of an H&E slide. For our study, tiling is performed using the "0b_tileLoop_deepzoom4.py" script from the DeepPATH pipeline (https://github.com/ncoudray/DeepPATH). The input data need to be organized in the following manner:
+1. 299x299 pixel tiles are saved in folders named after the corresponding slide. Each tile is named according to the formula: slide_name_x_y.jpeg, where x and y are the tile coordinates. Files containing the paths to all tiles of the slides of interest are saved as well in a separate folder under the naming convention slide-name_path.txt. This file structure enables the CellProfiler pipeline to create an output folder for each slide.
 
 ## Pipeline
 Our CellProfiler pipeline consists of the following steps:
