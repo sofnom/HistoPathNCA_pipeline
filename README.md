@@ -36,13 +36,19 @@ In the slide specific folder, the pipeline outputs:
 
 ## Data analysis
 Analysis of the generated data is focusing on creating a visualization of the average feature values for the identified nuclei/cells at the patient level. The way the analysis is set, it can take care of multiple slides by patient by aggregating all the information from all the slides. Three scripts are developed:
+  
   * data_analysis_nuclei_pigment.r 
-    * Input:
+    * Input:A folder with all the output files for nuclei (Nuclei_out_of_pigment_slide_name.txt) and pigment (pigmented_regions_slide_name.txt) for your slides of interest.
+    * Output: 
+    1. A file with the data for all annotated objects, named "all_accepted_nuclei.txt".
+    2. 
+    3. A file named "per_patient_pigment_data.txt". This file has two columns, one with the patient id and one with the total pigmented area for each patient normalized by the total number of tiles for each patient.
+  
+  * data_analysis_cells.r
+    * Input: 
     * Output:
-2. data_analysis_cells.r
-Input: 
-Output:
-3. data_analysis_nuclei.r
+  
+  * data_analysis_nuclei.r
 
 
 Both scripts take as input a folder where all the output files from the previous step are saved for all patients/slides.
@@ -55,7 +61,7 @@ Note: Please, make sure you update the scripts if the patient identifiers you ar
 
 ## Data plotting
 Finally, scripts are provided for data visualization:
-1. data_plotting.r
+1. data_plotting_objects.r
 2. data_plotting_pigment.r
 
 These scripts create a .png file with boxplots showing the feature distribution by mutation statification for each object feature. For our paper, we plotted the nuclear and cellular data by patient BRAF mutational status. The script also generates a file with p-values comparing the two distributions using a Wilcoxon rank sum test.
