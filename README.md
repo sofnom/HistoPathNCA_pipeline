@@ -40,7 +40,7 @@ Analysis of the generated data is focusing on creating a visualization of the av
   * data_analysis_nuclei_pigment.r 
     * Input: A folder with all the pipeline generated files for nuclei (Nuclei_out_of_pigment_slide_name.txt) and pigment (pigmented_regions_slide_name.txt) for your slides of interest.
     * Output: 
-    1. A file with the average data for all annotated objects, named "all_accepted_nuclei.txt".
+    A file with the average data for all annotated objects, named "all_accepted_nuclei.txt".
     2. A file including the averaged nuclear features for each patient normalized to the total number of tiles per patient when necessary, called "per_patient_nuclei_data_normalized.txt". The features that get normalized by the total number of tiles are the total number of objects and the total area occupied by the objects. 
     3. A file named "per_patient_pigment_data.txt". This file has two columns, one with the patient id and one with the total pigmented area for each patient normalized by the total number of tiles for each patient.
   
