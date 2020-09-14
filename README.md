@@ -36,9 +36,9 @@ In the slide specific folder, the pipeline outputs:
 
 ## Data analysis
 Analysis of the generated data is focusing on creating a visualization of the average feature values for the identified nuclei/cells at the patient level. The way the analysis is set, it can take care of multiple slides by patient by aggregating all the information from all the slides. Three scripts are developed:
-1. data_analysis_nuclei_pigment.r 
-> Input:
-> Output:
+  * data_analysis_nuclei_pigment.r 
+    * Input:
+    * Output:
 2. data_analysis_cells.r
 Input: 
 Output:
