@@ -40,7 +40,7 @@ Analysis of the generated data is focusing on creating a visualization of the av
   * data_analysis_nuclei_pigment.r 
     * Input: A folder with all the pipeline generated files for nuclei (Nuclei_out_of_pigment_slide_name.txt) and pigment (pigmented_regions_slide_name.txt) for your slides of interest.
     * Output: 
-    A file with the average data for all annotated objects, named "all_accepted_nuclei.txt".
+    1. A file with the average data for all annotated objects, named "all_accepted_nuclei.txt".
     2. A file including the averaged nuclear features for each patient normalized to the total number of tiles per patient when necessary, called "per_patient_nuclei_data_normalized.txt". The features that get normalized by the total number of tiles are the total number of objects and the total area occupied by the objects. 
     3. A file named "per_patient_pigment_data.txt". This file has two columns, one with the patient id and one with the total pigmented area for each patient normalized by the total number of tiles for each patient.
   
@@ -60,9 +60,10 @@ Note: Please, make sure you update the scripts if the patient identifiers you ar
 ## Data plotting
 Finally, scripts are provided for data visualization:
 1. data_plotting_objects.r
+  * Input: The input to this script is the data file with the normalized data by patient, a file including the patient ids and their mutational status and a string indicating if the objects are "nuclei" or "cells" to determine the output files. 
+  * Output: These scripts create a .png file with boxplots showing the feature distribution by mutation statification for each object feature. For our paper, we plotted the nuclear and cellular data by patient BRAF mutational status. The script also generates a file with p-values comparing the two distributions using a Wilcoxon rank sum test.
+
 2. data_plotting_pigment.r
-
-These scripts create a .png file with boxplots showing the feature distribution by mutation statification for each object feature. For our paper, we plotted the nuclear and cellular data by patient BRAF mutational status. The script also generates a file with p-values comparing the two distributions using a Wilcoxon rank sum test.
-The input to this script is the data file with the normalized data by patient, a file including the patient ids and their mutational status and a string indicating if the objects are "nuclei" or "cells" to determine the output files. 
-
+  * Input:
+  * Output: 
  
