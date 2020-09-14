@@ -9,7 +9,8 @@ All scripts are developed for the "bigpurple" computing cluster of the NYU Gross
 
 ## Data structure
 The pipeline is designed to run for every tile of an H&E slide. For our study, tiling is performed using the "0b_tileLoop_deepzoom4.py" script from the DeepPATH pipeline (https://github.com/ncoudray/DeepPATH). The input data need to be organized in the following manner:
-1. 299x299 pixel tiles are saved in folders named after the corresponding slide. Each tile is named according to the formula: slide_name_x_y.jpeg, where x and y are the tile coordinates. Files containing the paths to all tiles of the slides of interest are saved as well in a separate folder under the naming convention slide-name_path.txt. This file structure enables the CellProfiler pipeline to create an output folder for each slide.
+1. 299x299 pixel tiles are saved in folders named after the corresponding slide. Each tile is named according to the formula: slide_name_x_y.jpeg, where x and y are the tile coordinates. 
+2. Files containing the paths to all tiles of the slides of interest are saved as well in a separate folder under the naming convention slide-name_path.txt. This file structure enables the CellProfiler pipeline to create an output folder for each slide.
 
 ## Pipeline
 Our CellProfiler pipeline consists of the following steps:
@@ -61,10 +62,10 @@ Note: Please, make sure you update the scripts if the patient identifiers you ar
 ## Data plotting
 Finally, scripts are provided for data visualization:
 1. data_plotting_objects.r
-  * Input: The input to this script is the data file with the normalized data by patient, a file including the patient ids and their mutational status and a string indicating if the objects are "nuclei" or "cells" to determine the output files. 
-  * Output: These scripts create a .png file with boxplots showing the feature distribution by mutation statification for each object feature. For our paper, we plotted the nuclear and cellular data by patient BRAF mutational status. The script also generates a file with p-values comparing the two distributions using a Wilcoxon rank sum test.
+  * Input: The input to this script is the data file with the normalized data by patient ("per_patient_nuclei_data_normalized.txt" or "per_patient_cell_data_normalized.txt"), a file including the patient ids and their mutational status and a string indicating if the objects are "nuclei" or "cells" to determine the output files' naming. 
+  * Output: These script creates a .png file with boxplots showing the feature distribution by mutation statification for each object feature. For our paper, we plotted the nuclear and cellular data by patient BRAF mutational status. The script also generates a file with p-values comparing the two distributions using a Wilcoxon rank sum test.
 
 2. data_plotting_pigment.r
-  * Input: 
-  * Output: 
+  * Input: The input to this script is the data file with the normalized pigment data by patient ("per_patient_pigment_data.txt" and a file including the patient ids and their mutational status.
+  * Output: These script creates a .png file with boxplots showing the total normalized pigment area by mutation statification. The script also generates a file with a p-value comparing the two distributions using a Wilcoxon rank sum test.
  
