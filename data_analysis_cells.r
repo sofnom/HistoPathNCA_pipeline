@@ -4,12 +4,7 @@ args <- commandArgs()
 
 input_folder <- args[3]
 output_folder <- args[4]
-# Read analysis parameters
-skip_tiles <- args[5]
-facetting_var <- args[6]
-aggregate_by <- args[7]
 
-# Script to load and analyze per slide results generated in cellprofiler
 library(dplyr)
 library(ggplot2)
 library(ggfortify)
